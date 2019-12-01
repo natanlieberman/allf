@@ -1,0 +1,57 @@
+<h1 id="title"> </h1><br>
+    <img id="bigPicture">
+    <img id="smallPicture">
+    <button onclick="next()">next</button>
+    <div id="title"></div>
+<!-- <style>
+  .stat{
+      display: inline-block;
+      width: 13px;
+      height: 13px;
+      background: pink;
+  }
+.stat.w8{background: olive;}
+.shh{opacity: 0.5;}
+</style> -->
+
+    <!-- <input type="checkbox">
+    <span class="stat"></span><br>
+        <button onclick="next()">next</button> -->
+    
+<script>
+
+    let index = 0;
+
+    function populateTask(taskitem) {
+        // let t = document.getElementById('tasks')
+        // t.querySelector('span')
+        // t.querySelector('input')
+        // t.querySelector('button')
+        // t.querySelector('span.stat')
+        // t.className = '';
+        
+         document.getElementById("title").innerHTML = taskitem.title
+         document.getElementById("bigPicture").src = taskitem.url
+         document.getElementById("smallPicture").src = taskitem.thumbnailUrl
+    }
+
+
+
+
+    function next() {
+        // document.querySelector('.stat').className = 'stat w8'
+        // document.querySelector('#tasks').className = 'shh'
+        // document.querySelector('button').disabled = 'disabled'
+
+        let x = new XMLHttpRequest();
+        x.onload = function () {
+            let item = JSON.parse(this.responseText)
+            console.log(item);
+            populateTask(item)
+        };
+
+        x.open("GET", "https://jsonplaceholder.typicode.com/photos/" + (++index))
+        x.send()
+    }
+
+</script>

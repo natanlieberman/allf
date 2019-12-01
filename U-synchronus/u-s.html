@@ -1,0 +1,100 @@
+<div id="d"></div>
+
+<script>
+
+
+    n1 = 3, n2 = 5, n3 = 8;
+
+    
+
+    
+
+    function sumAsync(a,b,c, calBack) {
+        console.log('I am sumAsync start',a,b,c);
+        setTimeout(function(){
+            console.log('I am sumAsync ended')
+            let s = a+b+c;
+            calBack(s)
+        },1200)
+    }
+
+
+    sumAsync(n1,n2,n3,function(total){
+        console.log(total);
+        
+    })
+
+
+function multAsync(a,b,c, calBack) {
+        console.log('I am multAsync start',a,b,c);
+        setTimeout(function(){
+            console.log('I am multAsync ended');
+            let m = a*b*c;
+            calBack(m)
+        },2220)
+    }
+    
+    multAsync(n1,n2,n3,function(total){
+        console.log(total);
+    })
+    
+
+
+
+
+function mulF(a,b,c, calBack1, calBack2){
+    let plus = a+b+c;
+    let multiply = a*b*c;
+    calBack1(plus)
+    calBack2(multiply)
+}
+
+mulF(n1,n2,n3,function calBack1(p){},function calBack2(m){})
+
+
+
+    // function sum(a,b,c){
+    //     console.log('I am sum',a,b,c);
+    //     return a+b+c;
+    // }
+
+    // function mult(a,b,c){
+    //     console.log('I am mult',a,b,c);
+    //     return a*b*c;
+    // }
+
+    // total = sum(n1,n2,n3);
+    // console.log(total);
+
+    // totalMult= mult(n1,n2,n3);
+    // console.log(totalMult);
+
+
+    
+
+
+
+
+
+
+
+
+
+// let d = document.getElementById('d')
+// let h= _h =>d.innerHTML +=_h+ '<br>';
+
+
+// h('hi 1')
+// setTimeout(()=> h('hi 2'),50)
+// setTimeout( h,45,['hi 3'])
+// h('hi 4')
+
+
+
+// setTimeout(function(){
+//     h('hi 150')
+// },150)
+
+
+
+</script>
